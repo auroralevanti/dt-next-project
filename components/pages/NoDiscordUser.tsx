@@ -5,7 +5,7 @@ import { Raleway } from 'next/font/google';
 import { Box, Grid, Link, Typography } from "@mui/material";
 
 
-import love from '/home/aurora/dt-next-project/public/devtalles/love.png';
+import love from './public/devtalles/love.png';
 
 
 export const NoDiscordUser = () => {

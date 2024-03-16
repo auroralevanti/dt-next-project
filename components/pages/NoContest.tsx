@@ -4,7 +4,7 @@ import { Raleway } from 'next/font/google';
 import { Box, Grid, Typography } from "@mui/material";
 
 
-import guitar from '/home/aurora/dt-next-project/public/devtalles/guitar.png';
+import guitar from './public/devtalles/guitar.png';
 
 /* const raleway = Raleway({
     weight: '300',
