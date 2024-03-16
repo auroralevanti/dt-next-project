@@ -4,7 +4,7 @@ import { Raleway } from 'next/font/google';
 import { Box, Grid, Typography } from "@mui/material";
 
 
-import fly from './public/devtalles/fly.png';
+import fly from 'public/devtalles/fly.png';
 
 export const Success = () => {
   return (

@@ -4,7 +4,7 @@ import { Raleway, Raleway_Dots } from 'next/font/google';
 import { Box, Grid, Typography } from "@mui/material";
 
 
-import error from './public/devtalles/404.png';
+import error from 'public/devtalles/404.png';
 import { GeneralLayout } from '../../components/layout';
 
 

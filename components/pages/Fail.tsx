@@ -4,7 +4,7 @@ import { Raleway } from 'next/font/google';
 import { Box, Grid, Typography } from "@mui/material";
 
 
-import death from './public/devtalles/death.png';
+import death from 'public/devtalles/death.png';
 
 export const Fail = () => {
   return (
