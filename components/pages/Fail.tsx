@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { Raleway } from 'next/font/google';
 
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 
 
 import death from '/public/devtalles/death.png';
@@ -27,6 +27,16 @@ export const Fail = () => {
                 <Grid item xs={12} md={12} padding={10} textAlign='center'>
                     <Image src={death} width={300} height={300} alt='death DevTalles' />
                 </Grid>
+
+                <Grid item xs={12} md={12} padding={10} textAlign='center'>
+                    <Button 
+                    variant='contained'
+                    color='secondary'
+                    href='/'>
+                        Regresar
+                    </Button>
+                </Grid>
+
             </Grid>
         </Box>
   )

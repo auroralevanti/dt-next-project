@@ -11,8 +11,8 @@ export const Navbar = () => {
         <Toolbar>
             <Box flex={1} />
 
-            <Box>
-                <Image src={Logo} width={300} height={56} alt='DevTalles Logo' />
+            <Box padding={1}>
+                <Image src={Logo} width={300} height={56} alt='DevTalles Logo' style={{ marginBottom: 20}}/>
       
             </Box>
 
