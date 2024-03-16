@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 import { AppBar, Box, Toolbar } from '@mui/material';
 
-import Logo from "public/LOGOBLANCO.png";
+import Logo from "/public/LOGOBLANCO.png";
 
 
 export const Navbar = () => {
