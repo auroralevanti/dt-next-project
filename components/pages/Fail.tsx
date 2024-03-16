@@ -4,7 +4,7 @@ import { Raleway } from 'next/font/google';
 import { Box, Grid, Typography } from "@mui/material";
 
 
-import death from '/home/aurora/dt-next-project/public/devtalles/death.png';
+import death from './public/devtalles/death.png';
 
 export const Fail = () => {
   return (
@@ -25,7 +25,7 @@ export const Fail = () => {
                 </Grid>
 
                 <Grid item xs={12} md={12} padding={10} textAlign='center'>
-                    <Image src={death} width={300} height={300} alt='guitar DevTalles' />
+                    <Image src={death} width={300} height={300} alt='death DevTalles' />
                 </Grid>
             </Grid>
         </Box>
