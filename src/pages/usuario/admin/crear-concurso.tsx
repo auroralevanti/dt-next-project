@@ -37,7 +37,6 @@ const CrearConcurso = () => {
                             <Grid item xs={12} md={12}>
                                 <TextField
                                     fullWidth
-                                    autoFocus
                                     variant='filled'
                                     label='Nombre del Concurso'
                                     id='contestName'
@@ -52,7 +51,6 @@ const CrearConcurso = () => {
                             <Grid item xs={12} md={12}>
                                 <TextField
                                     fullWidth
-                                    autoFocus
                                     variant='filled'
                                     label='Descripción del Concurso'
                                     id='contestDescription'
@@ -83,7 +81,6 @@ const CrearConcurso = () => {
                             <Grid item xs={12} md={12}>
                                 <TextField
                                     fullWidth
-                                    autoFocus
                                     variant='filled'
                                     label='Participantes Individual o por Equipo'
                                     id='contestantNumber'

@@ -1,6 +1,6 @@
 
 import { SubmitHandler, useForm } from 'react-hook-form';
-
+import { useSnackbar } from 'notistack';
 
 import { Typography, Box, Card, TextField, InputAdornment, Button } from "@mui/material";
 import PersonIcon from '@mui/icons-material/Person';
@@ -10,16 +10,51 @@ import { GeneralLayout } from "../../components/layout";
 
 
 interface Input {
-  usuario: string,
+  email: string,
   password: string
 };
 
 export default function Home() {
 
+  const { enqueueSnackbar } = useSnackbar();
+
   const { register, handleSubmit, formState: { errors } } = useForm<Input>();
 
-  const onSubmit: SubmitHandler<Input> = ({ usuario, password }: Input) => {
+  const onSubmit: SubmitHandler<Input> = async ({ email, password }: Input) => {
+    console.log(email, password);
 
+    try {
+      const connection = await fetch ('/api/login', {
+        method: 'POST',
+        headers:{
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+      })
+
+      const response = await connection.json();
+
+      if(response.userId === 0){
+        enqueueSnackbar('Usuario no válido', {
+          variant:'error',
+          autoHideDuration: 3000,
+          anchorOrigin: {
+              vertical: 'top',
+              horizontal: 'center'
+          }
+      })
+      }
+
+    } catch (error) {
+      enqueueSnackbar('Ha habido un error, intente de nuevo', {
+        variant:'error',
+        autoHideDuration: 3000,
+        anchorOrigin: {
+          vertical: 'top',
+          horizontal: 'center'
+        }
+      })
+    }
   }
 
 
@@ -39,17 +74,13 @@ export default function Home() {
             </Typography>
             <br />
 
-            {/* Input de Usuario */}
-
             <TextField
               fullWidth
-              autoFocus
               variant='outlined'
-              label='usuario'
-              autoComplete='usuario'
-              id='usuario'
-              {...register('usuario', { required: true })}
-              error={!!errors?.usuario}
+              label='email'
+              id='email'
+              {...register('email', { required: true })}
+              error={!!errors?.email}
               sx={{ paddingBottom: 5 }}
               InputProps={{
                 startAdornment: (
@@ -63,15 +94,12 @@ export default function Home() {
 
             </TextField>
             <br />
-            {/* input de contraseña */}
-
 
             <TextField
               fullWidth
               type='password'
               variant='outlined'
               label='contraseña'
-              autoComplete='contraseña'
               id='password'
               {...register('password', { required: true })}
               error={!!errors?.password}

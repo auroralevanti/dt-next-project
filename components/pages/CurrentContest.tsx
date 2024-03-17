@@ -3,19 +3,50 @@ import { Raleway } from 'next/font/google';
 
 import { Box, Button, Card, Grid, TextField, Typography } from "@mui/material";
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { useRouter } from 'next/router';
+
 
 
 interface Input {
-    idUsuarioDiscord: string,
-    nombreUsuarioDiscord: string
+    idUserDiscord: string,
+    nameUserDiscord: string
 }
 
 
 export const CurrentContest = () => {
 
+    const router = useRouter();
+
     const { register, handleSubmit, formState: { errors } } = useForm<Input>();
 
-    const onSubmit: SubmitHandler<Input> = ({ idUsuarioDiscord, nombreUsuarioDiscord }: Input) => {
+    const onSubmit: SubmitHandler<Input> = async({ idUserDiscord, nameUserDiscord }: Input) => {
+
+        try {
+            const backToSave = await fetch('/api/contestants/getInContest', {
+                method: 'POST',
+                headers:{
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ idUserDiscord, nameUserDiscord })
+            })
+
+            const response = await backToSave.json();
+
+            //TODO: Falta el .algo aqui y en el back
+
+            if(response.algo === true){
+                router.replace('/concursante/ingreso-exitoso')
+            };
+
+            if(response.algo === false){
+                router.replace('/concursante/falta-discord')
+            };
+            
+        } catch (error) {
+
+            router.replace('/concursante/ingreso-fallido');
+            
+        }
 
     }
 
@@ -46,9 +77,9 @@ export const CurrentContest = () => {
                                 autoFocus
                                 variant='filled'
                                 label='ID de Discord'
-                                id='idUsuarioDiscord'
-                                {...register('idUsuarioDiscord', { required: true })}
-                                error={!!errors?.idUsuarioDiscord}
+                                id='idUserDiscord'
+                                {...register('idUserDiscord', { required: true })}
+                                error={!!errors?.idUserDiscord}
                                 sx={{ paddingBottom: 5 }}
                                 >
 
@@ -59,9 +90,9 @@ export const CurrentContest = () => {
                             fullWidth
                             variant='filled'
                             label='Nombre Usuario en Discord'
-                            id='nombreUsuarioDiscordd'
-                            {...register('nombreUsuarioDiscord', { required: true })}
-                            error={!!errors?.nombreUsuarioDiscord}
+                            id='nameUserDiscord'
+                            {...register('nameUserDiscord', { required: true })}
+                            error={!!errors?.nameUserDiscord}
                             sx={{ textAlign: 'center', paddingBottom: 5 }}
                             >
 
