@@ -6,7 +6,7 @@ const AdminEntry = () => {
     return (
         <GeneralLayout title='Admin - DevTalles'>
 
-            <Grid container display='flex' justifyContent='center' spacing={3} padding={1} sx={{ height: 'calc(100vh)', backgroundColor: '#1e133b' }}>
+            <Grid container display='flex' justifyContent='center' spacing={3} sx={{ height: 'calc(100vh)', backgroundColor: '#1e133b' }}>
                 <Grid item textAlign='center' xs={12} md={4}>
                     <Button
                         variant='contained'

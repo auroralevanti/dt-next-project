@@ -22,14 +22,14 @@ const CrearConcurso = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<Input>();
 
     const onSubmit: SubmitHandler<Input> = ({ contestName, contestDescription, contestantNumber, maxNumber }: Input) => {
-
+        console.log(contestName, contestDescription, contestantNumber, maxNumber)
     }
     return (
 
         <GeneralLayout title='Crear Concurso - DevTalles'>
 
             <Box display='flex' justifyContent='center' sx={{ height: 'calc(100vh)', backgroundColor: '#1e133b' }}>
-                <Typography variant="body1" fontSize='34px' fontWeight={400} color='white' textAlign='center' paddingBottom={2}> Crear Nuevo Concurso</Typography>
+                
                 <Card sx={{ height: 'calc(100vh - 100px)', backgroundColor: '#e8d2ff', borderRadius: 2, borderColor: '#08440A', paddingRight: 2, paddingLeft: 2, paddingTop: 4, margin: 10 }}>
 
                     <form onSubmit={handleSubmit(onSubmit)}>

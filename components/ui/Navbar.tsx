@@ -12,7 +12,7 @@ export const Navbar = () => {
             <Box flex={1} />
 
             <Box padding={1}>
-                <Image src={Logo} width={300} height={56} alt='DevTalles Logo' style={{ marginBottom: 20}}/>
+                <Image src={Logo} width={300} height={56} alt='DevTalles Logo' style={{ marginBottom: 10}}/>
       
             </Box>
 
