@@ -1,5 +1,5 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { GeneralLayout } from '../../../../components/layout';
+import { GeneralLayout } from '../../components/layout';
 import { Box, Grid, Typography, Card, TextField, Button, InputLabel, Select, MenuItem } from '@mui/material';
 
 

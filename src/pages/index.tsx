@@ -95,7 +95,7 @@ export default function Home() {
 
       <Box sx={{ backgroundColor:'#1e133b', display: 'flex', justifyContent: 'center', paddingTop: 10, paddingBottom: 20 }}>
 
-        <Card sx={{ height: 'calc(65vh - 10px)', borderRadius: 2, borderColor: '#08440A', paddingRight: 2, paddingLeft: 2, paddingTop: 4 }}>
+        <Card sx={{ height: 'calc(100vh - 10px)', borderRadius: 2, borderColor: '#08440A', paddingRight: 2, paddingLeft: 2, paddingTop: 4 }}>
 
           <form onSubmit={handleSubmit(onSubmit)}>
             <Typography
@@ -172,7 +172,7 @@ export default function Home() {
                 color='primary'
                 size='small'
                 sx={{ marginBottom: 20 }}
-              /* onClick={passwordReset} */
+                href='/nuevo-usuario'
               >  Nuevo Usuario </Button>
             </Box>
 
