@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 
 type Data = 
 | { message: string }
+| { resultado: string }
 
 export default async function handler (req: NextApiRequest, res: NextApiResponse<Data>) {
     
@@ -19,10 +20,20 @@ export default async function handler (req: NextApiRequest, res: NextApiResponse
         })
 
         const data = await connectToBackSaveUser.json();
-        //TODO: Falta esperar a que diego cambie la respuesta
+        const {resultado} = data.Objeto.transaction;
+
+        
+        if( data.IsExito === false){
+            return res.status(412).json({ message: 'No posee acceso'})
+        }
+
+        return res.status(200).json({
+            ...data,
+            resultado,
+        })
 
 
     } catch (error) {
-        
+        return res.status(400).json({ message: 'Bad request' });
     }
 }

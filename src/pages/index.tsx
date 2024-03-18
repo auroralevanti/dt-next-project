@@ -1,4 +1,4 @@
-
+import { useContext } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useSnackbar } from 'notistack';
 
@@ -6,7 +6,9 @@ import { Typography, Box, Card, TextField, InputAdornment, Button } from "@mui/m
 import PersonIcon from '@mui/icons-material/Person';
 import LockIcon from '@mui/icons-material/Lock';
 import { GeneralLayout } from "../../components/layout";
-
+import { AuthContext } from '../../context';
+import Cookies from 'js-cookie';
+import { useRouter } from 'next/router';
 
 
 interface Input {
@@ -16,45 +18,75 @@ interface Input {
 
 export default function Home() {
 
+  const router = useRouter();
+
   const { enqueueSnackbar } = useSnackbar();
 
   const { register, handleSubmit, formState: { errors } } = useForm<Input>();
 
-  const onSubmit: SubmitHandler<Input> = async ({ email, password }: Input) => {
+  const onSubmit: SubmitHandler<Input> = async ({email, password}: Input) => {
     console.log(email, password);
-
+   
     try {
-      const connection = await fetch ('/api/login', {
-        method: 'POST',
-        headers:{
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email, password })
-      })
+            
+      const response = await fetch('/api/login', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({email, password}),
+      });
 
-      const response = await connection.json();
+      const envio = await response.json();
+      const { token, user } = envio;
+      console.log('ususario provider:', user)
 
-      if(response.userId === 0){
-        enqueueSnackbar('Usuario no válido', {
-          variant:'error',
-          autoHideDuration: 3000,
-          anchorOrigin: {
-              vertical: 'top',
-              horizontal: 'center'
-          }
-      })
-      }
+      Cookies.set('token', token);
+     
 
-    } catch (error) {
-      enqueueSnackbar('Ha habido un error, intente de nuevo', {
-        variant:'error',
-        autoHideDuration: 3000,
-        anchorOrigin: {
-          vertical: 'top',
-          horizontal: 'center'
-        }
-      })
-    }
+      if(user.isValid === true && user.role === 'admin' ){
+          enqueueSnackbar('Entrada como administrador', {
+              variant:'success',
+              autoHideDuration: 3000,
+              anchorOrigin: {
+                  vertical: 'top',
+                  horizontal: 'center'
+              }
+          })
+          
+          return router.push('/usuario/admin');
+      }; 
+
+      if(user.isValid === true && user.role === 'Participant'){
+          enqueueSnackbar('Bienvenido' ,{
+              variant:'success',
+              autoHideDuration: 3000,
+              anchorOrigin: {
+                  vertical:'top',
+                  horizontal:'center'
+              }
+          })
+
+          return router.push('/usuario/concursante');
+      };
+      
+      if(user.isValid === false ) {
+          enqueueSnackbar('Usuario y/o Contraseña incorrectos', {
+              variant: 'warning',
+              autoHideDuration: 6000,
+              anchorOrigin: {
+                  vertical: 'top',
+                  horizontal: 'center'
+              }
+          })
+          
+      };
+
+
+  } catch (error) {
+
+  }
+
   }
 
 
@@ -135,6 +167,13 @@ export default function Home() {
               /* onClick={passwordReset} */
               >  ¿Olvidó Contraseña? </Button>
 
+              <Button
+                variant='text'
+                color='primary'
+                size='small'
+                sx={{ marginBottom: 20 }}
+              /* onClick={passwordReset} */
+              >  Nuevo Usuario </Button>
             </Box>
 
           </form>

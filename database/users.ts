@@ -1,4 +1,4 @@
-export interface SeedContestans {
+export interface SeedUsers {
     userId: string;
     email: string;
     password: string;
@@ -9,11 +9,11 @@ export interface SeedContestans {
     createdAt: string
 };
 
-interface SeedContestantsData {
-    contestants: SeedContestans[]
+interface SeedUsersData {
+    contestants: SeedUsers[]
 };
 
-export const initialContestantsData: SeedContestantsData = {
+export const initialContestantsData: SeedUsersData = {
     contestants: [
         {
             userId:             '001',
@@ -55,8 +55,35 @@ export const initialContestantsData: SeedContestantsData = {
             discordMemberSince: '07-08-2023',
             createdAt:          '11-03-2024'
         },
-
+        {
+            userId:             '005',
+            email:              'isaiasdominguez@gmail.com',
+            password:           '12345678',
+            role:               'participant',
+            discordId:          'isaiasdominguez',
+            discordName:        'Isaias Dominguez',
+            discordMemberSince: '18-07-2023',
+            createdAt:          '11-03-2024'
+        },
+        {
+            userId:             '006',
+            email:              'fernando_her85@gmail.com',
+            password:           '12345678',
+            role:               'admin',
+            discordId:          'fernando_her85',
+            discordName:        'Fernando Herrera',
+            discordMemberSince: '18-07-2023',
+            createdAt:          '11-03-2024'
+        },
+        {
+            userId:             '007',
+            email:              'cesarhsandoval@gmail.com',
+            password:           '12345678',
+            role:               'admin',
+            discordId:          'cesarhsandoval',
+            discordName:        'César H. Sandoval',
+            discordMemberSince: '18-07-2023',
+            createdAt:          '11-03-2024'
+        },
     ]
 }
-
-

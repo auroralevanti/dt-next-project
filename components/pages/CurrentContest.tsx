@@ -32,14 +32,12 @@ export const CurrentContest = () => {
 
             const response = await backToSave.json();
 
-            //TODO: Falta el .algo aqui y en el back
-
-            if(response.algo === true){
+            if(response.Objeto.transaction.resultado === true){
                 router.replace('/concursante/ingreso-exitoso')
             };
 
-            if(response.algo === false){
-                router.replace('/concursante/falta-discord')
+            if(response.Objeto.transaction.resultado === false){
+                router.replace('/concursante/ingreso-fallido')
             };
             
         } catch (error) {
