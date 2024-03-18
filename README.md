@@ -11,22 +11,28 @@ yarn dev
 
 ```
 
-1.- Instalar ambiente bñasico para proyecto en nextjs.
+1.- Instalar ambiente básico para proyecto en nextjs.
 2.- Aunque ejecuta acciones de back en .NET, éstas no requieren instalaciones extras de ambientes de producción en .NET, puesto que se encuentran en la nube y se pueden acceder de manera remota en development o production.
 
 
 
-## Learn More
+## Contiene .env
 
-To learn more about Next.js, take a look at the following resources:
+para la secret seed de jwt token
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Produccion en Vercel
+## Hay dos usuarios solamente registrados para el login
 
-https://www.dt-next-project.levaxonline.com
+USUARIO ADMIN
+Correo: cesarhsandoval@gmail.com
+Password: 12345678
 
+USUARIO PARTICIPANTES
+Correo: diegojdiazp@gmail.com           
+Password: 12345
+
+## Predeterminado
+La pagina valida si existe o no concurso activo para el lado de ingreso al concurso de un participante
+El concurso de CodeQuest en plataforma se encuentra activo para que se vea el flujo de concursante.
 

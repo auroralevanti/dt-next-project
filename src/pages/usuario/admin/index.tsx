@@ -21,7 +21,8 @@ const AdminEntry = () => {
                     <Button
                         variant='contained'
                         size='large'
-                        color='secondary'>
+                        color='secondary'
+                        href='/usuario/admin/concurso-activo'>
                         concurso activo
                     </Button>
                 </Grid>
@@ -30,7 +31,8 @@ const AdminEntry = () => {
                     <Button
                         variant='contained'
                         size='large'
-                        color='secondary'>
+                        color='secondary'
+                        href='/usuario/admin/agregar-admin'>
                         agregar admin
                     </Button>
                 </Grid>
@@ -39,19 +41,12 @@ const AdminEntry = () => {
                     <Button
                         variant='contained'
                         size='large'
-                        color='secondary'>
+                        color='secondary'
+                        href='/usuario/admin/listado-participantes'>
                         participantes
                     </Button>
                 </Grid>
 
-                <Grid item textAlign='center' xs={12} md={4}>
-                    <Button
-                        variant='contained'
-                        size='large'
-                        color='secondary'>
-                        historial concurso
-                    </Button>
-                </Grid>
             </Grid>
 
         </GeneralLayout>
