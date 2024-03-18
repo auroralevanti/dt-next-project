@@ -33,7 +33,7 @@ const AdminEntry = () => {
                         size='large'
                         color='secondary'
                         href='/usuario/admin/agregar-admin'>
-                        agregar admin
+                        agregar usuarios
                     </Button>
                 </Grid>
 

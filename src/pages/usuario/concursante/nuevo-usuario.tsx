@@ -14,11 +14,11 @@ interface Input {
 
 }
 
-const AgregarAdmin = () => {
+const AgregarUsuario = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm<Input>();
 
-    const onSubmit: SubmitHandler<Input> = async({ userName, userEmail, userPassword, discordId, discordName, userRole, discordMemberSince }: Input) => {
+    const onSubmit: SubmitHandler<Input> = async({ userName, userEmail, userPassword, discordId, discordName, userRole='Participant', discordMemberSince }: Input) => {
         console.log(userName, userEmail, userPassword, discordId, discordName, userRole, discordMemberSince)
 
         const sendInfo = await fetch('/api/createUser', {
@@ -136,23 +136,6 @@ const AgregarAdmin = () => {
                                 </TextField>
                             </Grid>
 
-                            <Grid item textAlign='center' xs={12} sm={12}>
-                                <InputLabel>Seleccione un rol</InputLabel>
-                                <Select
-                                    fullWidth
-                                    variant="filled"
-                                    id='userRole'
-                                    label='Seleccione una forma de pago'
-                                    {...register('userRole', { required: true })}
-                                    error={!!errors?.userRole}
-                                >
-                                    
-                                    <MenuItem value='Admin'>Admin </MenuItem>
-                                    <MenuItem value='Participant'>Participante </MenuItem>
-
-                                </Select>
-                                </Grid>
-
                             <Box display='flex' justifyContent='center' marginTop={2} marginBottom={4} >
 
                                 <Button
@@ -178,4 +161,4 @@ const AgregarAdmin = () => {
   )
 }
 
-export default AgregarAdmin
+export default AgregarUsuario
