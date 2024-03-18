@@ -10,11 +10,11 @@ export interface SeedUsers {
 };
 
 interface SeedUsersData {
-    contestants: SeedUsers[]
+    users: SeedUsers[]
 };
 
-export const initialContestantsData: SeedUsersData = {
-    contestants: [
+export const initialUsersData: SeedUsersData = {
+    users: [
         {
             userId:             '001',
             email:              'jmboada30@gmail.com',
