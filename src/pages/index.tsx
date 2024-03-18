@@ -163,7 +163,7 @@ export default function Home() {
                 variant='text'
                 color='primary'
                 size='small'
-                sx={{ marginBottom: 20 }}
+                sx={{ borderRadius: 7, paddingLeft: 2, marginLeft: 2, marginBottom: 2 }}
               /* onClick={passwordReset} */
               >  ¿Olvidó Contraseña? </Button>
 
