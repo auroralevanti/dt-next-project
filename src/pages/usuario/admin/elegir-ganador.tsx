@@ -22,13 +22,6 @@ const ElegirGanador = () => {
                     <Image src={love} width={100} height={100} alt='regalo DevTalles' />
                 </Box>
 
-                {/* <ContestantWinnerCard /> */}
-                <Box display='flex' justifyContent='center'>
-                    <Image src={gift} width={510} height={504} alt='regalo DevTalles' />
-
-                </Box>
-
-
                 <Box display='flex' justifyContent='center' margin={2}>
                     <Button
                         variant='contained'
@@ -50,6 +43,13 @@ const ElegirGanador = () => {
                     </Button>
 
                 </Box>
+
+                
+                <Box display='flex' justifyContent='center'>
+                    <Image src={gift} width={510} height={504} alt='regalo DevTalles' />
+
+                </Box>
+
 
             </Box>
         </GeneralLayout>
