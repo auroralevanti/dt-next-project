@@ -34,7 +34,8 @@ const ElegirGanador = () => {
                         variant='contained'
                         size='large'
                         color='secondary'
-                        sx={{ margin: 2}}>
+                        sx={{ margin: 2}}
+                        href='/usuario/admin/ganador-random'>
                         elegir ganador
                     </Button>
 
